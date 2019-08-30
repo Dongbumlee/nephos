@@ -131,7 +131,7 @@ def check_ca(ingress_host, cacert=None):
         
     """
     # Check that CA ingress is operational
-    command = f"curl https://{ingress_host}/cainfo"
+    command = f"curl https://{ingress_host}/cainfo -Lk"
     if cacert:
         command += f" --cacert {cacert}"
     execute_until_success(command)
